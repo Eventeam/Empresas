@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
             }
             Toast.makeText(this, "Create new FragmentGeneral", Toast.LENGTH_SHORT).show();
             setFragmentGeneral();
-        }else if ((findViewById(R.id    .fragment_general_container) != null)
+        }else if ((findViewById(R.id.fragment_general_container) != null)
                 && ((findViewById(R.id.fragment_details_container) != null))) {
             if ((this.fragmentGeneral != null) && (this.fragmentDetails != null)) {
                 Toast.makeText(this, "The Fragments were already created", Toast.LENGTH_SHORT).show();
