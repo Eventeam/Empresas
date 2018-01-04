@@ -22,7 +22,7 @@ public class FragmentDetails extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        Toast.makeText(getActivity(), "FragmentDetails -> onCreateView", Toast.LENGTH_SHORT).show();
+//        Toast.makeText(getActivity(), "FragmentDetails -> onCreateView", Toast.LENGTH_SHORT).show();
 
         TextView textView = new TextView(getActivity());
         textView.setText(R.string.hello_details_fragment);
