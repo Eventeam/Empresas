@@ -6,5 +6,9 @@
     <string name="hello_details_fragment">Details</string>
     <string name="textview">TextView</string>
     <string name="todo">TODO</string>
+    <string name="phone_number">Telefone:</string>
+    <string name="email">Email:</string>
+    <string name="chooser_title">Send by...</string>
+    <string name="empresas">Empresas</string>
 
 </resources>

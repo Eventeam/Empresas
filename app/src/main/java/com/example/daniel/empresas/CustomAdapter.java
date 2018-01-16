@@ -8,6 +8,7 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.example.daniel.empresas.model.Company;
 
 import java.util.List;
@@ -46,19 +47,18 @@ public class CustomAdapter extends BaseAdapter {
             convertView = LayoutInflater.from(this.context).inflate(R.layout.row_list, parent,
                     false);
         }
-
         Company company = this.getItem(position);
 
         ImageView image = convertView.findViewById(R.id.companyImage);
         TextView name = convertView.findViewById(R.id.companyName);
 
-//        Glide.with(context).load(company.getImage()).into(image);
+        Glide.with(context).load(company.getImage()).into(image);
         name.setText(company.getName());
 
         return convertView;
     }
 
-    public void updateCompanies(List<Company> companies) {
+    void updateCompanies(List<Company> companies) {
         this.companies = companies;
         notifyDataSetChanged();
     }

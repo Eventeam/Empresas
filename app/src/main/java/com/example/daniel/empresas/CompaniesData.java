@@ -14,7 +14,7 @@ class CompaniesData {
             "\t\"Telefone\": \"+351243469199\",\n" +
             "\t\"Email\": \"geral@semir.pt\",\n" +
             "\t\"Web\": \"http://www.semir.pt/index.html\",\n" +
-            "\t\"Localização\": [\"39.306386\", \"-8.734095\"],\n" +
+            "\t\"Localização\": \"39.306386,-8.734095\",\n" +
             "\t\"Facebook\": \"https://www.facebook.com/SEMIRLDA/\",\n" +
             "\t\"LinkedIn\": \"\",\n" +
             "\t\"Twitter\": \"\",\n" +
@@ -29,7 +29,7 @@ class CompaniesData {
             "\t\"Telefone\": \"+351210997867\",\n" +
             "\t\"Email\": \"geral@galraorenovaveis.pt\",\n" +
             "\t\"Web\": \"http://www.galraorenovaveis.pai.pt\",\n" +
-            "\t\"Localização\": [\"38.848474\", \"-9.319470\"],\n" +
+            "\t\"Localização\": \"38.848474,-9.319470\",\n" +
             "\t\"Facebook\": \"https://www.facebook.com/Galraorenovaveis\",\n" +
             "\t\"LinkedIn\": \"\",\n" +
             "\t\"Twitter\": \"\",\n" +
@@ -44,7 +44,7 @@ class CompaniesData {
             "\t\"Telefone\": \"+351219818380\",\n" +
             "\t\"Email\": \"info@moreme.pt\",\n" +
             "\t\"Web\": \"http://www.eternalenergysolutions.com\",\n" +
-            "\t\"Localização\": [\"38.801749\", \"-9.250364\"],\n" +
+            "\t\"Localização\": \"38.801749,-9.250364\",\n" +
             "\t\"Facebook\": \"https://www.facebook.com/EternalEnergySolutions/\",\n" +
             "\t\"LinkedIn\": \"\",\n" +
             "\t\"Twitter\": \"\",\n" +
@@ -59,7 +59,7 @@ class CompaniesData {
             "\t\"Telefone\": \"+351239700750\",\n" +
             "\t\"Email\": \"info@sunenergy.pt\",\n" +
             "\t\"Web\": \"http://www.sunenergy.pt\",\n" +
-            "\t\"Localização\": [\"40.236548\", \"-8.437103\"],\n" +
+            "\t\"Localização\": \"40.236548,-8.437103\",\n" +
             "\t\"Facebook\": \"https://www.facebook.com/pagina.sunenergy\",\n" +
             "\t\"LinkedIn\": \"\",\n" +
             "\t\"Twitter\": \"\",\n" +
@@ -74,7 +74,7 @@ class CompaniesData {
             "\t\"Telefone\": \"+35121924556\",\n" +
             "\t\"Email\": \"geral.lisboa@sinergiae.com\",\n" +
             "\t\"Web\": \"http://www.sinergiae.com\",\n" +
-            "\t\"Localização\": [\"38.842734\", \"-9.370500\"],\n" +
+            "\t\"Localização\": \"38.842734,-9.370500\",\n" +
             "\t\"Facebook\": \"https://www.facebook.com/sinergiaelisboa\",\n" +
             "\t\"LinkedIn\": \"https://pt.linkedin.com/company/grupo-sinergiae\",\n" +
             "\t\"Twitter\": \"\",\n" +
@@ -89,7 +89,7 @@ class CompaniesData {
             "\t\"Telefone\": \"+351263470180\",\n" +
             "\t\"Email\": \"geral@jodel.pt\",\n" +
             "\t\"Web\": \"http://www.jodel.pt\",\n" +
-            "\t\"Localização\": [\"39.16443843\", \"-8.92478496\"],\n" +
+            "\t\"Localização\": \"39.16443843,-8.92478496\",\n" +
             "\t\"Facebook\": \"https://www.facebook.com/www.jodel.pt\",\n" +
             "\t\"LinkedIn\": \"https://www.linkedin.com/company/jodel-s.a.\",\n" +
             "\t\"Twitter\": \"\",\n" +
@@ -104,7 +104,7 @@ class CompaniesData {
             "\t\"Telefone\": \"+351263470210\",\n" +
             "\t\"Email\": \"comercial@gepack.pt\",\n" +
             "\t\"Web\": \"http://www.gepack.pt\",\n" +
-            "\t\"Localização\": [\"39.149714\", \"-8.901437\"],\n" +
+            "\t\"Localização\": \"39.149714,-8.901437\",\n" +
             "\t\"Facebook\": \"\",\n" +
             "\t\"LinkedIn\": \"https://www.linkedin.com/company/gepack\",\n" +
             "\t\"Twitter\": \"\",\n" +
@@ -119,7 +119,7 @@ class CompaniesData {
             "\t\"Telefone\": \"+351211450301\",\n" +
             "\t\"Email\": \"geral@samsys.pt\",\n" +
             "\t\"Web\": \"http://www.samsys.pt\",\n" +
-            "\t\"Localização\": [\"41.205316\", \"-8.527452\"],\n" +
+            "\t\"Localização\": \"41.205316,-8.527452\",\n" +
             "\t\"Facebook\": \"https://www.facebook.com/SAMSYS\",\n" +
             "\t\"LinkedIn\": \"http://www.linkedin.com/company/samsys-inform-tica\",\n" +
             "\t\"Twitter\": \"https://twitter.com/samsyspt\",\n" +
@@ -134,7 +134,7 @@ class CompaniesData {
             "\t\"Telefone\": \"+351217532000\",\n" +
             "\t\"Email\": \"\",\n" +
             "\t\"Web\": \"https://www.jeronimomartins.com/pt/\",\n" +
-            "\t\"Localização\": [\"38.760017\", \"-9.156511\"],\n" +
+            "\t\"Localização\": \"38.760017,-9.156511\",\n" +
             "\t\"Facebook\": \"\",\n" +
             "\t\"LinkedIn\": \"https://www.linkedin.com/company/164533/\",\n" +
             "\t\"Twitter\": \"\",\n" +
@@ -149,7 +149,7 @@ class CompaniesData {
             "\t\"Telefone\": \"+351219827522\",\n" +
             "\t\"Email\": \"gabcom@luis-simoes.com\",\n" +
             "\t\"Web\": \"http://www.luis-simoes.pt\",\n" +
-            "\t\"Localização\": [\"38.851885\", \"-9.209687\"],\n" +
+            "\t\"Localização\": \"38.851885,-9.209687\",\n" +
             "\t\"Facebook\": \"https://pt-pt.facebook.com/GrupoLuisSimoes/\",\n" +
             "\t\"LinkedIn\": \"http://www.linkedin.com/company/luis-simoes-logistica-integrada-s-a-?trk=biz-companies-cym\",\n" +
             "\t\"Twitter\": \"https://twitter.com/grupoluissimoes\",\n" +

@@ -5,16 +5,21 @@ import android.annotation.SuppressLint;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.app.ListFragment;
+import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.example.daniel.empresas.model.Company;
+import com.example.daniel.empresas.model.DataCache;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -30,7 +35,8 @@ import java.util.List;
  */
 public class FragmentGeneral extends ListFragment {
 
-    private CustomAdapter customAdapter;
+    @SuppressLint("StaticFieldLeak")
+    static CustomAdapter customAdapter;
 
     public FragmentGeneral() {
         // Required empty public constructor
@@ -40,9 +46,10 @@ public class FragmentGeneral extends ListFragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 //        Toast.makeText(getActivity(), "FragmentGeneral -> onCreateView", Toast.LENGTH_SHORT).show();
-        List<Company> companies = new ArrayList<>();
-        this.customAdapter = new CustomAdapter(getActivity().getBaseContext(), companies);
-        setListAdapter(this.customAdapter);
+        getActivity().setTitle(getString(R.string.empresas));
+
+        customAdapter = new CustomAdapter(getActivity().getBaseContext(), DataCache.getCompanyList());
+        setListAdapter(customAdapter);
 
         return super.onCreateView(inflater, container, savedInstanceState);
     }
@@ -55,13 +62,51 @@ public class FragmentGeneral extends ListFragment {
         fetchSpeakersAsyncTask.execute(CompaniesData.RESPONSE);
     }
 
+    @Override
+    public void onListItemClick(ListView listView, View view, int position, long id) {
+        FragmentDetails.company = customAdapter.getItem(position);
+        Company company = FragmentDetails.company;
+
+        if (getActivity().findViewById(R.id.fragment_container) != null){
+//            Toast.makeText(getActivity().getBaseContext(), "Clicked Portrait. " + company.getName(), Toast.LENGTH_SHORT).show();
+
+            FragmentDetails fragmentDetails = new FragmentDetails();
+            Bundle args = new Bundle();
+            args.putInt("position", position);
+            fragmentDetails.setArguments(args);
+
+            FragmentTransaction transaction = getActivity().getSupportFragmentManager()
+                    .beginTransaction();
+
+            transaction.replace(R.id.fragment_container, fragmentDetails);
+            transaction.addToBackStack(null);
+
+            transaction.commit();
+        }
+        else{
+//            Toast.makeText(getActivity().getBaseContext(), "Clicked Landscape. " + company.getName(), Toast.LENGTH_SHORT).show();
+
+            getActivity().setTitle(company.getName());
+
+            ImageView companyLogo = (ImageView) getActivity().findViewById(R.id.companyImageView);
+            Glide.with(getActivity().getBaseContext()).load(company.getImage()).into(companyLogo);
+
+            TextView companyCategory = (TextView) getActivity().findViewById(R.id.companyCategoryTextView);
+            companyCategory.setText(company.getCategory());
+
+            TextView companyNumber = (TextView) getActivity().findViewById(R.id.companyNumberTextView);
+            companyNumber.setText(Html.fromHtml("<b>" + getString(R.string.phone_number) + "</b> " + company.getPhoneNumber()));
+
+            TextView companyEmail = (TextView) getActivity().findViewById(R.id.companyEmailTextView);
+            companyEmail.setText(Html.fromHtml("<b>" + getString(R.string.email) + "</b> " + company.getEmail()));
+
+            TextView details = (TextView) getActivity().findViewById(R.id.companyDescriptionTextView);
+            details.setText(company.getDescription());
+        }
+    }
+
     @SuppressLint("StaticFieldLeak")
     private class FetchSpeakersAsyncTask extends AsyncTask<String, Void, List<Company>> {
-
-        @Override
-        protected void onPreExecute() {
-            // Run on UI Thread
-        }
 
         @Override
         protected void onProgressUpdate(Void... values) {
@@ -110,14 +155,8 @@ public class FragmentGeneral extends ListFragment {
 
         @Override
         protected void onPostExecute(List<Company> companies) {
-            FragmentGeneral.this.customAdapter.updateCompanies(companies);
+            DataCache.setCompanyList(companies);
+            customAdapter.updateCompanies(companies);
         }
-    }
-
-    @Override
-    public void onListItemClick(ListView listView, View view, int position, long id) {
-        Company company = this.customAdapter.getItem(position);
-        Toast.makeText(getActivity().getBaseContext(), company.getName(),
-                Toast.LENGTH_SHORT).show();
     }
 }
