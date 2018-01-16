@@ -42,6 +42,11 @@ public class FragmentGeneral extends ListFragment {
         // Required empty public constructor
     }
 
+    public interface OnHeadlineSelectedListener {
+        public void onArticleSelected(int position);
+    }
+
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
