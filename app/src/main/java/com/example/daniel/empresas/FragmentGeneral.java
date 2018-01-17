@@ -2,6 +2,7 @@ package com.example.daniel.empresas;
 
 
 import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -37,19 +38,29 @@ public class FragmentGeneral extends ListFragment {
 
     @SuppressLint("StaticFieldLeak")
     static CustomAdapter customAdapter;
+    private OnGeneralSelectedListener mCallback;
 
     public FragmentGeneral() {
         // Required empty public constructor
     }
 
-    public interface OnHeadlineSelectedListener {
-        public void onArticleSelected(int position);
+    public interface OnGeneralSelectedListener {
+        void OnDetailsSelected(int position, Company company, CustomAdapter customAdapter);
     }
 
+    @Override
+    public void onAttach(Activity activity) {
+        super.onAttach(activity);
+        try {
+            mCallback = (OnGeneralSelectedListener) activity;
+        } catch (ClassCastException e) {
+            throw new ClassCastException(activity.toString()
+                    + " must implement OnHeadlineSelectedListener");
+        }
+    }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 //        Toast.makeText(getActivity(), "FragmentGeneral -> onCreateView", Toast.LENGTH_SHORT).show();
         getActivity().setTitle(getString(R.string.empresas));
 
@@ -69,45 +80,7 @@ public class FragmentGeneral extends ListFragment {
 
     @Override
     public void onListItemClick(ListView listView, View view, int position, long id) {
-        FragmentDetails.company = customAdapter.getItem(position);
-        Company company = FragmentDetails.company;
-
-        if (getActivity().findViewById(R.id.fragment_container) != null){
-//            Toast.makeText(getActivity().getBaseContext(), "Clicked Portrait. " + company.getName(), Toast.LENGTH_SHORT).show();
-
-            FragmentDetails fragmentDetails = new FragmentDetails();
-            Bundle args = new Bundle();
-            args.putInt("position", position);
-            fragmentDetails.setArguments(args);
-
-            FragmentTransaction transaction = getActivity().getSupportFragmentManager()
-                    .beginTransaction();
-
-            transaction.replace(R.id.fragment_container, fragmentDetails);
-            transaction.addToBackStack(null);
-
-            transaction.commit();
-        }
-        else{
-//            Toast.makeText(getActivity().getBaseContext(), "Clicked Landscape. " + company.getName(), Toast.LENGTH_SHORT).show();
-
-            getActivity().setTitle(company.getName());
-
-            ImageView companyLogo = (ImageView) getActivity().findViewById(R.id.companyImageView);
-            Glide.with(getActivity().getBaseContext()).load(company.getImage()).into(companyLogo);
-
-            TextView companyCategory = (TextView) getActivity().findViewById(R.id.companyCategoryTextView);
-            companyCategory.setText(company.getCategory());
-
-            TextView companyNumber = (TextView) getActivity().findViewById(R.id.companyNumberTextView);
-            companyNumber.setText(Html.fromHtml("<b>" + getString(R.string.phone_number) + "</b> " + company.getPhoneNumber()));
-
-            TextView companyEmail = (TextView) getActivity().findViewById(R.id.companyEmailTextView);
-            companyEmail.setText(Html.fromHtml("<b>" + getString(R.string.email) + "</b> " + company.getEmail()));
-
-            TextView details = (TextView) getActivity().findViewById(R.id.companyDescriptionTextView);
-            details.setText(company.getDescription());
-        }
+        mCallback.OnDetailsSelected(position, customAdapter.getItem(position), customAdapter);
     }
 
     @SuppressLint("StaticFieldLeak")

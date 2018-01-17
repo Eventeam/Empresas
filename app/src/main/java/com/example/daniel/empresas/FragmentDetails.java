@@ -5,8 +5,6 @@ import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
-import android.graphics.Paint;
-import android.graphics.Typeface;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -32,6 +30,7 @@ import java.util.List;
  */
 public class FragmentDetails extends Fragment {
 
+    private View view;
     static Company company;
 
     public FragmentDetails() {
@@ -43,7 +42,9 @@ public class FragmentDetails extends Fragment {
                              Bundle savedInstanceState) {
 //        Toast.makeText(getActivity(), "FragmentDetails -> onCreateView", Toast.LENGTH_SHORT).show();
 
-        return inflater.inflate(R.layout.fragment_details, container, false);
+        view = inflater.inflate(R.layout.fragment_details, container, false);
+
+        return view;
     }
 
     @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
@@ -78,7 +79,7 @@ public class FragmentDetails extends Fragment {
     public void onResume() {
         super.onResume();
 
-        ImageButton callButton = (ImageButton) getActivity().findViewById(R.id.callButton);
+        ImageButton callButton = (ImageButton) view.findViewById(R.id.callButton);
         callButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -103,7 +104,7 @@ public class FragmentDetails extends Fragment {
             }
         });
 
-        ImageButton emailButton = (ImageButton) getActivity().findViewById(R.id.emailButton);
+        ImageButton emailButton = (ImageButton) view.findViewById(R.id.emailButton);
         emailButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -125,7 +126,7 @@ public class FragmentDetails extends Fragment {
             }
         });
 
-        ImageButton webButton = (ImageButton) getActivity().findViewById(R.id.webButton);
+        ImageButton webButton = (ImageButton) view.findViewById(R.id.webButton);
         webButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -137,7 +138,7 @@ public class FragmentDetails extends Fragment {
             }
         });
 
-        ImageButton locationButton = (ImageButton) getActivity().findViewById(R.id.locationButton);
+        ImageButton locationButton = (ImageButton) view.findViewById(R.id.locationButton);
         locationButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -159,7 +160,7 @@ public class FragmentDetails extends Fragment {
             }
         });
 
-        ImageButton linkedInButton = (ImageButton) getActivity().findViewById(R.id.linkedInButton);
+        ImageButton linkedInButton = (ImageButton) view.findViewById(R.id.linkedInButton);
         linkedInButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -171,7 +172,7 @@ public class FragmentDetails extends Fragment {
             }
         });
 
-        ImageButton facebookButton = (ImageButton) getActivity().findViewById(R.id.facebookButton);
+        ImageButton facebookButton = (ImageButton) view.findViewById(R.id.facebookButton);
         facebookButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -183,7 +184,7 @@ public class FragmentDetails extends Fragment {
             }
         });
 
-        ImageButton twitterButton = (ImageButton) getActivity().findViewById(R.id.twitterButton);
+        ImageButton twitterButton = (ImageButton) view.findViewById(R.id.twitterButton);
         twitterButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -195,7 +196,7 @@ public class FragmentDetails extends Fragment {
             }
         });
 
-        ImageButton youtubeButton = (ImageButton) getActivity().findViewById(R.id.youtubeButton);
+        ImageButton youtubeButton = (ImageButton) view.findViewById(R.id.youtubeButton);
         youtubeButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -207,7 +208,7 @@ public class FragmentDetails extends Fragment {
             }
         });
 
-        ImageButton googlePlusButton = (ImageButton) getActivity().findViewById(R.id.googlePlusButton);
+        ImageButton googlePlusButton = (ImageButton) view.findViewById(R.id.googlePlusButton);
         googlePlusButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
